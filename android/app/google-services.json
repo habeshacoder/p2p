@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "852196625748",
+    "project_id": "p2p-prod-ccd2c",
+    "storage_bucket": "p2p-prod-ccd2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852196625748:android:4b8b46c9211c24fb340cc1",
+        "android_client_info": {
+          "package_name": "com.example.p2p"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1oz91x3KUN81H3ZWYiS-7xYzPO_rvTWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

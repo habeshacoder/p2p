@@ -1,0 +1,26 @@
+[
+  {
+    "vehicle_name": "BIKE",
+    "vehicle_image": "assets/images/vehicle_images/bicycle.jpg"
+  },
+  {
+    "vehicle_name": "MOTOR_BIKE",
+    "vehicle_image": "assets/images/vehicle_images/motor.png"
+  },
+  {
+    "vehicle_name": "BOX_TRUCK",
+    "vehicle_image": "assets/images/vehicle_images/box.png"
+  },
+  {
+    "vehicle_name": "CARGO_VAN",
+    "vehicle_image": "assets/images/vehicle_images/cargo.png"
+  },
+  {
+    "vehicle_name": "COURIER",
+    "vehicle_image": "assets/images/vehicle_images/courier.png"
+  },
+  {
+    "vehicle_name": "PICKUP_TRUCK",
+    "vehicle_image": "assets/images/vehicle_images/truck.png"
+  }
+]

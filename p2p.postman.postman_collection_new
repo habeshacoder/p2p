@@ -1,0 +1,856 @@
+{
+	"info": {
+		"_postman_id": "121ef74b-433d-4f43-99eb-f30869ef4a01",
+		"name": "p2p",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17182442",
+		"_collection_link": "https://web.postman.co/workspace/P2P-Team-Workspace~3ea6a8af-d633-40a5-aa2b-923039421df2/collection/17182442-121ef74b-433d-4f43-99eb-f30869ef4a01?action=share&source=collection_link&creator=17182442"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"Mrx\",\r\n    \"lastName\":\"Mry\",\r\n    \"userName\":\"0911701778\",\r\n    \"userPassword\":\"12341234\",\r\n    \"email\":\"mrx@gmail.com\",\r\n    \"address\":{\r\n        \"city\": \"Addis Ababa\",\r\n        \"street\":\"Megenagna\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/create-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"0911701778\",\r\n    \"password\":\"12341234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Become An Agent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjk2NjEzNjA2LCJpYXQiOjE2OTY1OTU2MDZ9.8StRBIbFs0tbFy-0rpTgJzrUuYSpakpO37NRjgOQAHCmNO59oRmuptuaFKT2OaCJ7RPkVcXM_1w7UdpUuEvi6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "pid",
+						"value": "b05d833d-9951-429f-b2fb-a4c1275ce36a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"profileImageUrl\":\"https://firebasestorage.googleapis.com/v0/b/betdelala-prod.appspot.com/o/betDelalaApp%2Fimages%2F2023%2F5%2F12%2F1683900532807_agent1%20(1).png?alt=media&token=eb0d470e-6e4c-4e99-a530-79134377b16c\",\r\n    \"email\":\"ababe@gmail.com\",\r\n    \"areaOfCoverages\": 1,\r\n    \"carInfo\":{\r\n        \"plateNumber\": \"12345\",\r\n        \"make\": \"corolla\",\r\n        \"model\": \"2012\",\r\n        \"color\": \"white\",\r\n        \"imageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thecarconnection.com%2Foverview%2Ftoyota_corolla_2012&psig=AOvVaw1w8T46ekWo3JG9hf5WKyde&ust=1687445300299000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLjm6vLN1P8CFQAAAAAdAAAAABAE\",\r\n        \"carType\": \"normal_car\",\r\n        \"loadingCapacity\": \"medium\",\r\n        \"description\": \"Some Description\"\r\n    }\r\n    // ,\r\n        // \"motorBikeInfo\":{\r\n    // },\r\n        // \"bikeInfo\":{\r\n        // }\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/agent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Agents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/public/agents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"agents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Delivery Agent By User Public ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjg3NzkxNzk4LCJpYXQiOjE2ODc3NzM3OTh9.hjdU_TxbFOGeC8Mqy1c3oloNoozn9w7ya3TjCSrBy9rhxPKdiby7-N5_7WjaMjBu7iZtFiuoIkFELksrK_rtlA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "pid",
+						"value": "b05d833d-9951-429f-b2fb-a4c1275ce36a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/agent/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve Delivery Agent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjg4NTAwOTI4LCJpYXQiOjE2ODg0ODI5Mjh9.gf4mNiGmwAgFPkRK4h45Up2ucYEFxttwKXt9t1ixs7q2CRUTkLf5FlQiZyRgFTSwV3JknkOQ79dHA_g0zKKxaw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/agent/approve?agentIdNumber=PA-9b487&approvedStatus=APPROVED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"agent",
+						"approve"
+					],
+					"query": [
+						{
+							"key": "agentIdNumber",
+							"value": "PA-9b487"
+						},
+						{
+							"key": "isAgentApproved",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "approvedStatus",
+							"value": "APPROVED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjk2NjEzNjg5LCJpYXQiOjE2OTY1OTU2ODl9.8e27p0ekBlCTpH4MDTINg_Mi-X7hj7FBPUaIq7iPzgSPg0GdORTiKpwNJX4eifSlbPeWkBuOKYS_kUS7dpSsAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/verify-order/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"verify-order",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Agent By Pid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjk2NjEzNjA2LCJpYXQiOjE2OTY1OTU2MDZ9.8StRBIbFs0tbFy-0rpTgJzrUuYSpakpO37NRjgOQAHCmNO59oRmuptuaFKT2OaCJ7RPkVcXM_1w7UdpUuEvi6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "pid",
+						"value": "b05d833d-9951-429f-b2fb-a4c1275ce36a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": 3,\r\n   \"locationName\": \"Mexico, Addis Ababa\", \r\n   \"latitude\": \"9.01038\", \r\n   \"longitude\": \"38.74454\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/agent/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Agent Avaliablity",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjk2NjEzNjA2LCJpYXQiOjE2OTY1OTU2MDZ9.8StRBIbFs0tbFy-0rpTgJzrUuYSpakpO37NRjgOQAHCmNO59oRmuptuaFKT2OaCJ7RPkVcXM_1w7UdpUuEvi6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "pid",
+						"value": "b05d833d-9951-429f-b2fb-a4c1275ce36a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": 3,\r\n   \"locationName\": \"Mexico, Addis Ababa\", \r\n   \"latitude\": \"9.01038\", \r\n   \"longitude\": \"38.74454\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/agent/update-availability?isAvailable=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent",
+						"update-availability"
+					],
+					"query": [
+						{
+							"key": "isAvailable",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject Delivery Agent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjg3NTMxNzIzLCJpYXQiOjE2ODc1MTM3MjN9.euNt8G87lITQTKXQL9Q9x160aiiaCdDVdOukJzMkEi1X_ya4jRiVamEZ_ZnWdmwVCsoIjMNJf0fudSRkseupbQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/agent/reject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"agent",
+						"reject"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Area of Coverage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjk2NjEzNjg5LCJpYXQiOjE2OTY1OTU2ODl9.8e27p0ekBlCTpH4MDTINg_Mi-X7hj7FBPUaIq7iPzgSPg0GdORTiKpwNJX4eifSlbPeWkBuOKYS_kUS7dpSsAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"locationName\": \"x, Addis Ababa\", \r\n   \"latitude\": \"9.111\", \r\n   \"longitude\": \"38.111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/area-of-coverage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"area-of-coverage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update  Area of Coverage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjg3NTMxNzIzLCJpYXQiOjE2ODc1MTM3MjN9.euNt8G87lITQTKXQL9Q9x160aiiaCdDVdOukJzMkEi1X_ya4jRiVamEZ_ZnWdmwVCsoIjMNJf0fudSRkseupbQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": 3,\r\n   \"locationName\": \"Mexico, Addis Ababa\", \r\n   \"latitude\": \"9.01038\", \r\n   \"longitude\": \"38.74454\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/area-of-coverage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"area-of-coverage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Area Of Coverage Pagebale",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjg3NTMxNzIzLCJpYXQiOjE2ODc1MTM3MjN9.euNt8G87lITQTKXQL9Q9x160aiiaCdDVdOukJzMkEi1X_ya4jRiVamEZ_ZnWdmwVCsoIjMNJf0fudSRkseupbQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": 3,\r\n   \"locationName\": \"Mexico, Addis Ababa\", \r\n   \"latitude\": \"9.01038\", \r\n   \"longitude\": \"38.74454\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/area-of-coverages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"area-of-coverages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Area of Coverage By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjg3NTMxNzIzLCJpYXQiOjE2ODc1MTM3MjN9.euNt8G87lITQTKXQL9Q9x160aiiaCdDVdOukJzMkEi1X_ya4jRiVamEZ_ZnWdmwVCsoIjMNJf0fudSRkseupbQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": 3,\r\n   \"locationName\": \"Mexico, Addis Ababa\", \r\n   \"latitude\": \"9.01038\", \r\n   \"longitude\": \"38.74454\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/area-of-coverage/:id/show",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"area-of-coverage",
+						":id",
+						"show"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Area of Coverage By KeyWord (Auto Complete)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjg3NzkxNzk4LCJpYXQiOjE2ODc3NzM3OTh9.hjdU_TxbFOGeC8Mqy1c3oloNoozn9w7ya3TjCSrBy9rhxPKdiby7-N5_7WjaMjBu7iZtFiuoIkFELksrK_rtlA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/agent/area-of-coverage?keyword=me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent",
+						"area-of-coverage"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "me"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request a Delivery (Order)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc4IiwiZXhwIjoxNjk2NjE2NDU3LCJpYXQiOjE2OTY1OTg0NTd9.xt2m3e4ZDhZx6zt7FSFH3rBlYyunFSGgs0jmf-5kejUXmViGkGj2TP94XzOWopG6jjsoGJT8IVY60p_ti9_hFQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 4,\r\n    \"deliveryItem\":[\r\n        {\r\n            \"name\": \"Some Item\",\r\n            \"itemCategory\": [{\r\n                \"id\": 1\r\n            }],\r\n            \"sizeMeasurement\": \"KG\",\r\n            \"size\": \"2\",\r\n            \"isBrittle\": true,\r\n            \"isFlammable\":false,\r\n            \"isSensitive\": true,\r\n            \"remark\": \"Some Remark\"                              \r\n         }\r\n    ] ,\r\n    \"quotedPrice\": 2000.00,\r\n    \"finalPrice\": 2200.00,\r\n    \"isPayed\": false,\r\n    \"pickupPoint\": {\r\n        \"latitude\": 8.895831,\r\n        \"longitude\": 38.789162,\r\n        \"street\": \"Akaki Kality\",\r\n        \"city\": \"Addis Ababa\",\r\n        \"country\": \"Ethiopia\",\r\n        \"remark\": \"Some Remark\"\r\n    },\r\n    \"pickupDate\": \"2023-08-08\",\r\n    \"destinationPoint\": {\r\n        \"latitude\": 9.019674,\r\n        \"longitude\": 38.802711,\r\n        \"street\": \"Megenagna\",\r\n        \"city\": \"Addis Ababa\",\r\n        \"country\": \"Ethiopia\",\r\n        \"remark\": \"Some Remark\"\r\n    },\r\n    \"destinationDate\": \"2023-08-08\",\r\n    \"vehicleType\": \"MOTOR_BIKE\",\r\n    \"remark\": \"remark\",\r\n    \"receiverName\" : \"Mrx Mry\",\r\n    \"receiverSignature\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add item Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjkxNzYyNTU2LCJpYXQiOjE2OTE3NDQ1NTZ9.J0_0bL1w5R4ivxaVQJFAoU-xBHAbtckGTTDLuw3Rjtv_yqUZbVQ5ze9pWCppR8wbMLh3otSDYrvIz7K1W78kxA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"category\": \"X\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users By Keyword",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjkxNzY1NjMyLCJpYXQiOjE2OTE3NDc2MzJ9.x-T2ABxpXgZQ-h37hl5Pnn1dt5jQgF6gvtq-jaIqmBsZkJS1z9vxClsqBCnHCzsWCWVL9Do_6De1hlpoyclWQQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/user-list?keyword=ad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"user-list"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "ad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users By Role",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTI0NTgwNDcwIiwiZXhwIjoxNjkxNzY1NjMyLCJpYXQiOjE2OTE3NDc2MzJ9.x-T2ABxpXgZQ-h37hl5Pnn1dt5jQgF6gvtq-jaIqmBsZkJS1z9vxClsqBCnHCzsWCWVL9Do_6De1hlpoyclWQQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "pid",
+						"value": "cdb9e76b-a662-4ae2-8c09-b4145d3d7bcf",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/user-list/:role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"user-list",
+						":role"
+					],
+					"variable": [
+						{
+							"key": "role",
+							"value": "AGENT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get NearBy Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjk2NjEzNjA2LCJpYXQiOjE2OTY1OTU2MDZ9.8StRBIbFs0tbFy-0rpTgJzrUuYSpakpO37NRjgOQAHCmNO59oRmuptuaFKT2OaCJ7RPkVcXM_1w7UdpUuEvi6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/agent/near-by?latitude=8.895831&longitude=38.789162",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent",
+						"near-by"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "8.895831"
+						},
+						{
+							"key": "longitude",
+							"value": "38.789162"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTExNzAxNzc3IiwiZXhwIjoxNjk2NjEzNjA2LCJpYXQiOjE2OTY1OTU2MDZ9.8StRBIbFs0tbFy-0rpTgJzrUuYSpakpO37NRjgOQAHCmNO59oRmuptuaFKT2OaCJ7RPkVcXM_1w7UdpUuEvi6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"deliveryAgent\": {\r\n          \"id\": 1\r\n      },\r\n      \"pickUpImageUrl\": \"URL\",\r\n      \"pickUpRemark\": \"Remark\",\r\n      \"deliveredDate\": \"\",\r\n      \"deliveredImageUrl\": \"\",\r\n      \"deliveredRemark\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/agent/accept-order?id=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"agent",
+						"accept-order"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
